@@ -9,7 +9,7 @@ class User {
     function __construct(){
     }
 
-    public function find_all_users(){
+    static function find_all_users(){
         global $database;
 
         $result_set = $database->query("SELECT * FROM users");
@@ -21,8 +21,6 @@ class User {
 
 }
 
-$user = new User;
-$user->find_all_users();
 
 
 ?>
