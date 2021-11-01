@@ -10,6 +10,9 @@
                         <a href="upload"><i class="glyphicon glyphicon-upload"></i> Upload</a>
                     </li>
                     <li>
+                        <a href="photos"><i class="glyphicon glyphicon-picture"></i> Photos</a>
+                    </li>
+                    <li>
                         <a href="comments"><i class="glyphicon glyphicon-comment"></i> Comments</a>
                     </li>
                 </ul>
