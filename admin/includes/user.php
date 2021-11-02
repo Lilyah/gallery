@@ -34,21 +34,42 @@ class User {
     public static function find_this_query($sql){
         global $database;
 
+        // Empty array to put objects in it
+        $the_object_array = array();
         $result_set = $database->query($sql);
-        return $result_set;
+
+        // Loop that fetches the database table and brings back the results
+        while($row = mysqli_fetch_array($result_set)){
+            $the_object_array[] = User::instantiation($row);
+        }
+        return $the_object_array;
     }
 
     // Method for automathic instatiation of class User and hiw properties
     public static function instantiation($found_user){
         $user = new User;
 
-        $user->user_id = $found_user['user_id'];
-        $user->username = $found_user['username'];
-        $user->user_password = $found_user['user_password'];
-        $user->user_first_name = $found_user['user_first_name'];
-        $user->user_last_name = $found_user['user_last_name'];
+        /* The foreach code below is actually doing this here
+        */
+        // $user->user_id = $found_user['user_id'];
+        // $user->username = $found_user['username'];
+        // $user->user_password = $found_user['user_password'];
+        // $user->user_first_name = $found_user['user_first_name'];
+        // $user->user_last_name = $found_user['user_last_name'];
+
+        foreach($found_user as $the_attribute => $value){
+            if($user->has_the_attribute($the_attribute)){}
+                $user->$the_attribute = $value;
+        }
 
         return $user;
+    }
+
+    // 
+    private function has_the_attribute($the_attribute){
+        $object_properties = get_object_vars($this);
+        return array_key_exists($the_attribute, $object_properties);
+
     }
 
 
