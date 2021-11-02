@@ -4,6 +4,15 @@ require_once("config.php");
 
 class User {
 
+    /* Properties
+    */
+    public $user_id;
+    public $username;
+    public $user_password;
+    public $user_first_name;
+    public $user_last_name;
+
+
     /* Methods
     */
     function __construct(){
@@ -33,6 +42,7 @@ class User {
 
 }
 
+$user = new User;
 
 
 ?>
