@@ -12,10 +12,18 @@
 
                             <?php
 
+                                /* Displaying all users
+                                */
                                 $result_set = User::find_all_users();
                                 while($row = mysqli_fetch_array($result_set)){
                                     echo $row['username'] . "<br>";
                                 }
+
+                                /* Displaying user byt id
+                                */
+                                $found_user = User::find_users_by_id(1);
+                                echo $found_user['username'];
+                                
                             ?>
 
                         </h2>
