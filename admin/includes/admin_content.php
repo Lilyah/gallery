@@ -21,14 +21,14 @@
 
                                 /* Displaying user byt id
                                 */
-                                // $user and find_users_by_id comes from instantiating class User (look file /gallery/admin/includes/user.php)
+                                // $user, $found_user, find_users_by_id, instantiation 
+                                // comes from class User (look file /gallery/admin/includes/user.php)
                                 $found_user = User::find_users_by_id(1);
+                                $user = User::instantiation($found_user);
 
-                                $user->user_id = $found_user['user_id'];
-                                $user->username = $found_user['username'];
-                                $user->user_password = $found_user['user_password'];
-                                $user->user_first_name = $found_user['user_first_name'];
-                                $user->user_last_name = $found_user['user_last_name'];
+                                echo $user->user_id;
+                                echo $user->user_last_name;
+                                echo $user->username;
                                 
                             ?>
 
