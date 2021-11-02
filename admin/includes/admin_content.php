@@ -30,11 +30,13 @@
                                 // echo $user->user_last_name;
                                 // echo $user->username;
 
-                                $users = User::find_all_users();
-                                foreach($users as $user){
-                                    echo $user->username . "<br>";
-                                }
+                                // $users = User::find_all_users();
+                                // foreach($users as $user){
+                                //     echo $user->username . "<br>";
+                                // }
                                 
+                                $found_user = User::find_users_by_id(1);
+                                echo $found_user->username;
                             ?>
 
                         </h2>
