@@ -35,6 +35,7 @@ class User {
 
     // Finding user by id
     public static function find_users_by_id($user_id){
+        global $database;
         $the_result_array = User::find_this_query("SELECT * FROM users WHERE user_id = $user_id");
 
         /* ONE way of doing this  
@@ -50,16 +51,16 @@ class User {
         */
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
 
-        return $found_user;
+        //return $found_user;
     }
 
     // Method for executing any query
     public static function find_this_query($sql){
         global $database;
+        $result_set = $database->query($sql);
 
         // Empty array to put objects in it
         $the_object_array = array();
-        $result_set = $database->query($sql);
 
         // Loop that fetches the database table and brings back the results
         while($row = mysqli_fetch_array($result_set)){
@@ -77,8 +78,8 @@ class User {
         5. If the keys from the record which basically are the columns from db table are found or equal the object properties then it assigns the values to them.
         6. Finally it returns the object!
     */
-    public static function instantiation($found_user){
-        $user = new User; 
+    public static function instantiation($the_record){
+        $the_object = new User; 
 
         /* The foreach code below is actually doing this here
         */
@@ -88,12 +89,12 @@ class User {
         // $user->user_first_name = $found_user['user_first_name'];
         // $user->user_last_name = $found_user['user_last_name'];
 
-        foreach($found_user as $the_attribute => $value){
-            if($user->has_the_attribute($the_attribute)){}
-                $user->$the_attribute = $value;
+        foreach($the_record as $the_attribute => $value){
+            if($the_object->has_the_attribute($the_attribute)){}
+                $the_object->$the_attribute = $value;
         }
 
-        return $user;
+        return $the_object;
     }
 
     // 
