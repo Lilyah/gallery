@@ -12,6 +12,12 @@ function classAutoLoader($class){
     }
 };
 
-spl_autoload_register('classAutoLoader')
+spl_autoload_register('classAutoLoader');
+
+
+// Redirect custom function
+function redirect($location){
+    header("Location: {$location}");
+}
 
 ?>
