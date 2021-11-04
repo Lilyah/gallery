@@ -2,9 +2,11 @@
 
 include("includes/header.php");
 
+//session_unset();
+
 // If there is a session the user will be redirected to admin/index
 if($session->is_signed_in()){
-    redirect("index.php");
+    redirect("index");
 }
 
 if(isset($_POST['submit'])){
@@ -18,7 +20,7 @@ if(isset($_POST['submit'])){
     // If the user exists in the database it will be redirected to admin/index
     if($user_found){
         $session->login($user_found);
-        redirect("../index.php");
+        redirect("index");
     } else {
         $the_message = "Your login information is incorect";
     }
