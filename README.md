@@ -27,7 +27,7 @@
 
 
 ## Screenshots
-![index](./img/#)
+![index](./img/classes_structure.png)
 
 
 ## Setup for local environment
