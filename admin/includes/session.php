@@ -8,6 +8,7 @@ class Session {
     */
     private $signed_in = false; // Default value is false
     public $user_id;
+    public $message;
 
 
     /* Methods
@@ -15,6 +16,22 @@ class Session {
     function __construct(){
         session_start();
         $this->check_the_login();
+        $this->check_message();
+    }
+
+    // Method for displaying messages
+    public function message($msg=""){
+        return !empty($msg) ? $_SESSION['message'] = $msg : $this->message;
+    }
+
+    // If we refresh the page the message will be gone
+    private function check_message(){
+        if(isset($_SESSION['message'])){
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        } else {
+            $this->message = "";
+        }
     }
 
     // Get method; Returns true or false
