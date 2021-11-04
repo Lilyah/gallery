@@ -17,9 +17,9 @@
 - The purpose of the project is to master PHP OOP. 
 
 ## Technologies Used
-- PHP - [version X](https://www.php.net/)
-- Bootstrap - [version X](http://getbootstrap.com)
-- Jquery - [version X](https://code.jquery.com/)
+- PHP - [version 7.*](https://www.php.net/)
+- Bootstrap - [version 3.3.2](http://getbootstrap.com)
+- Jquery - [version 1.11.1](https://code.jquery.com/)
 - MySQL DB
 
 ## Features
