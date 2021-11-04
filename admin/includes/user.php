@@ -20,7 +20,7 @@ class User {
 
     // Finding all users
     /* User::find_all()  ... Here is the flow once is called 
-        1.   It goes to the find_all method 
+        1. It goes to the find_all method 
         2. The find_all() returns the find_by_query() results 
         3. The find_by_query()  does a couple things 
             A. it makes the query 
@@ -50,8 +50,6 @@ class User {
         /* SECOND way of doing this is Ternary Behaviour
         */
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
-
-        //return $found_user;
     }
 
     // Method for executing any query
@@ -67,6 +65,24 @@ class User {
             $the_object_array[] = User::instantiation($row);
         }
         return $the_object_array;
+    }
+
+    // Method for verifying user
+    public static function verify_user($username, $user_password){
+        global $database;
+
+        // Using the method escape_string from class Database for cleaning the input info
+        $username = $database->escape_string($username);
+        $user_password = $database->escape_string($user_password);
+
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "username = '{$username}' ";
+        $sql .= "AND user_password = '{$user_password}' ";
+        $sql .= "LIMIT 1";
+
+        $the_result_array = User::find_this_query($sql);
+
+        return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
 
     // Method for automathic instatiation of class User and his properties
@@ -103,6 +119,8 @@ class User {
         return array_key_exists($the_attribute, $object_properties);
 
     }
+
+    //
 
 
 
