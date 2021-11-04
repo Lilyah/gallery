@@ -34,14 +34,13 @@
 - Install [PHP 7.*](https://www.php.net/)
 - Used development environment [XAMPP](https://www.apachefriends.org/index.html)
 - php.ini configurations:
-file_uploads=True, 1, or On;
-post_max_size=8M;
-upload_max_file_size=2m;
-memory_limit=128M;
-max_input_time=-1 or -no limit;
-upload_tmp_dir=NULL;
-max_execution_time=30 seconds;
-
+`file_uploads=True, 1, or On`
+`post_max_size=8M`
+`upload_max_file_size=2M`
+`memory_limit=128M`
+`max_input_time=-1 or -no limit`
+`upload_tmp_dir=NULL`
+`max_execution_time=30 seconds`
 
 ## Project Status
 Project is: _in progress_
