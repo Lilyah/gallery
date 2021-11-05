@@ -49,8 +49,21 @@
                             // $user->update();
 
                             /*** Testing delete() method of User ***/
-                            $user = User::find_users_by_id(3);
-                            $user->delete();
+                            // $user = User::find_users_by_id(3);
+                            // $user->delete();
+
+                            /*** Testing save() method of User ***/
+                            /* 1 */
+                            // $user = User::find_users_by_id(2);
+                            // $user->username= "Maya-2";
+                            // $user->save(); // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
+
+                            /* 2 */
+                            // $user = new User;
+                            // $user->username= "Maya-3";
+                            // $user->save(); // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
+
+
                         ?>
 
                         </h2>
