@@ -26,6 +26,25 @@
                             Users
                             <small>Subheading</small>
                         </h1>
+
+                        <h2>
+                        <?php
+
+                            // Testing create() method of User
+                            $user = new User();
+
+                            // Entering some static info for our properties
+                            $user->username = "SamJ";
+                            $user->user_password = "123";
+                            $user->user_first_name = "Sam";
+                            $user->user_last_name = "Johnes";
+
+                            //Calling create method for testing
+                            $user->create();
+
+                        ?>
+
+                        </h2>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
