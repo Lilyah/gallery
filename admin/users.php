@@ -30,18 +30,23 @@
                         <h2>
                         <?php
 
-                            // Testing create() method of User
-                            $user = new User();
+
+                            /*** Testing create() method of User ***/
+                            // $user = new User();
 
                             // Entering some static info for our properties
-                            $user->username = "SamJ";
-                            $user->user_password = "123";
-                            $user->user_first_name = "Sam";
-                            $user->user_last_name = "Johnes";
+                            // $user->username = "SamJ";
+                            // $user->user_password = "123";
+                            // $user->user_first_name = "Sam";
+                            // $user->user_last_name = "Johnes";
 
                             //Calling create method for testing
-                            $user->create();
+                            //$user->create();
 
+                            /*** Testing update() method of User ***/
+                            $user = User::find_users_by_id(3);
+                            $user->user_last_name = "Updated last name";
+                            $user->update();
                         ?>
 
                         </h2>
