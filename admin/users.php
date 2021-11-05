@@ -44,9 +44,13 @@
                             //$user->create();
 
                             /*** Testing update() method of User ***/
+                            // $user = User::find_users_by_id(3);
+                            // $user->user_last_name = "Updated last name";
+                            // $user->update();
+
+                            /*** Testing delete() method of User ***/
                             $user = User::find_users_by_id(3);
-                            $user->user_last_name = "Updated last name";
-                            $user->update();
+                            $user->delete();
                         ?>
 
                         </h2>
