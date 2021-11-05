@@ -39,8 +39,9 @@
 `upload_max_file_size=2M`
 `memory_limit=128M`
 `max_input_time=-1 or -no limit`
-`upload_tmp_dir=NULL`
 `max_execution_time=30 seconds`
+- Permissions on upload directory for files 
+`Read & Write`
 
 ## Project Status
 Project is: _in progress_
