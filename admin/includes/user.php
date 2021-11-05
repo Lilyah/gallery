@@ -120,6 +120,13 @@ class User {
 
     }
 
+
+    // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
+    public function save(){
+        return isset($this->user_id) ? $this->update() : $this->create();
+    }
+
+
     // Create user method
     public function create(){
         global $database;
