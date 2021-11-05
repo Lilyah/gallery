@@ -120,7 +120,26 @@ class User {
 
     }
 
-    //
+    // Create user method
+    public function create(){
+        global $database;
+
+        $sql = "INSERT INTO users (username, user_password, user_first_name, user_last_name) ";
+        $sql .= "VALUES ('";
+        $sql .= $database->escape_string($this->username) . "', '";
+        $sql .= $database->escape_string($this->user_password) . "', '";
+        $sql .= $database->escape_string($this->user_first_name) . "', '";
+        $sql .= $database->escape_string($this->user_last_name) . "')";
+
+        if($database->query($sql)){
+            $this->user_id = $database->the_insert_id(); // Pulling the user_id of the last record and asigned in $this->user_id
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
 
 
 
