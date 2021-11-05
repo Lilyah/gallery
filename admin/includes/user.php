@@ -137,8 +137,23 @@ class User {
         } else {
             return false;
         }
+    }
 
 
+    // Update user method
+    public function update(){
+        global $database;
+
+        $sql = "UPDATE users SET ";
+        $sql .= "username= '" . $database->escape_string($this->username) ."', ";
+        $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
+        $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
+        $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
+        $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
 
 
