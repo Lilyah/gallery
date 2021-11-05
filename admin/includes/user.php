@@ -157,6 +157,20 @@ class User {
     }
 
 
+    // Delete user method
+    public function delete(){
+        global $database;
+
+        $sql = "DELETE FROM users WHERE ";
+        $sql .= "user_id= " . $database->escape_string($this->user_id);
+        $sql .= " LIMIT 1";
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
+
 
 }
 
