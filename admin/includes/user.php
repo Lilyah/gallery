@@ -122,6 +122,12 @@ class User {
     }
 
 
+    // Pulling out the properties
+    protected function properties(){
+        return get_object_vars($this);
+    }
+
+
     // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
     public function save(){
         return isset($this->user_id) ? $this->update() : $this->create();
@@ -132,12 +138,10 @@ class User {
     public function create(){
         global $database;
 
-        $sql = "INSERT INTO " . User::$db_table . " (username, user_password, user_first_name, user_last_name) ";
-        $sql .= "VALUES ('";
-        $sql .= $database->escape_string($this->username) . "', '";
-        $sql .= $database->escape_string($this->user_password) . "', '";
-        $sql .= $database->escape_string($this->user_first_name) . "', '";
-        $sql .= $database->escape_string($this->user_last_name) . "')";
+        $properties = $this->properties(); // Will return all the properties of this class
+
+        $sql = "INSERT INTO " . User::$db_table . "(" . implode(",", array_keys($properties)) . ")"; // implode() join array elements with a string
+        $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";
 
         if($database->query($sql)){
             $this->user_id = $database->the_insert_id(); // Pulling the user_id of the last record and asigned in $this->user_id
