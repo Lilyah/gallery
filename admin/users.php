@@ -30,6 +30,11 @@
                         <h2>
                         <?php
 
+                            /*** Testing find_all() method of User ***/
+                            $users = User::find_all();
+                            foreach($users as $user){
+                                echo $user->username;
+                            };
 
                             /*** Testing create() method of User ***/
                             // $user = new User();
