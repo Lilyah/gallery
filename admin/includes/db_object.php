@@ -6,7 +6,6 @@ class Db_object {
 
     /* Properties
     */
-    protected static $db_table = "users"; // Makes the method below more flexible, because we can use them with different tables
 
 
     /* Methods
@@ -24,7 +23,7 @@ class Db_object {
             E. And that will be the result that find_all() returns when we use Db_object::find_all()
     */
     public static function find_all(){
-        return static::find_by_query("SELECT * FROM " . self::$db_table . " ");
+        return static::find_by_query("SELECT * FROM " . static::$db_table . " ");
     }
 
     // Finding record by id
