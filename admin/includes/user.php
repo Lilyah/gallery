@@ -164,11 +164,23 @@ class User {
     public function update(){
         global $database;
 
+        // The code below actualy is doing something like this
+        // $sql = "UPDATE " . User::$db_table . " SET ";
+        // $sql .= "username= '" . $database->escape_string($this->username) ."', ";
+        // $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
+        // $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
+        // $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
+        // $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+
+        $properties = $this->properties();
+        $properties_pairs = array();
+
+        foreach($properties as $key => $value){
+            $properties_pairs[] = "{$key}='{$value}'";
+        }
+
         $sql = "UPDATE " . User::$db_table . " SET ";
-        $sql .= "username= '" . $database->escape_string($this->username) ."', ";
-        $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
-        $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
-        $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
+        $sql .= implode(", ", $properties_pairs);
         $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
 
         $database->query($sql);
