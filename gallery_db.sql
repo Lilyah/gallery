@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 01, 2021 at 11:28 AM
+-- Generation Time: Nov 06, 2021 at 11:27 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `photos`
+--
+
+CREATE TABLE `photos` (
+  `photo_id` int(11) NOT NULL,
+  `photo_title` varchar(255) NOT NULL,
+  `photo_description` text NOT NULL,
+  `photo_filename` varchar(255) NOT NULL,
+  `photo_type` varchar(255) NOT NULL,
+  `photo_zise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -32,12 +47,29 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL,
-  `user_last_namer` varchar(255) NOT NULL
+  `user_last_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_first_name`, `user_last_name`) VALUES
+(1, 'lily', '123', 'Lily', 'Boz'),
+(2, 'Maya-2', '123', 'Maya', 'Lanz'),
+(5, 'Maya-3', '', '', ''),
+(7, 'SamJ', '123', 'Updated first name', 'Updated last name-2'),
+(8, 'SamJ', '123', 'Sam', 'Johnes');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`photo_id`);
 
 --
 -- Indexes for table `users`
@@ -50,10 +82,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
