@@ -7,6 +7,7 @@ class User {
     /* Properties
     */
     protected static $db_table = "users"; // Makes the method below more flexible, because we can use them with different tables
+    protected static $db_table_fields = array('username', 'user_password', 'user_first_name', 'user_last_name');
     public $user_id;
     public $username;
     public $user_password;
@@ -122,9 +123,16 @@ class User {
     }
 
 
-    // Pulling out the properties
+    // Pulling out the properties of the class where the method is called
     protected function properties(){
-        return get_object_vars($this);
+        $properties = array();
+        foreach(User::$db_table_fields as $db_field){
+            if(property_exists($this, $db_field)){
+                $properties[$db_field] = $this->$db_field;
+            }
+        }
+
+        return $properties;
     }
 
 
