@@ -132,7 +132,21 @@ class User {
             }
         }
 
-        return $properties;
+        return $properties; // returning array with keys and values
+    }
+
+
+    // Using $database->escape_string() for array values
+    protected function clean_properties(){
+       global $database;
+       
+       $clean_properties = array();
+       // Loop throw %this->properties() and pull out the keys and the values
+       foreach($this->properties() as $key => $value){
+           $clean_properties[$key] = $database->escape_string($value); // cleaning the pulled out values with $database->escape_string($value) and asigned them to $clean_properties[$key]
+       }
+
+       return $clean_properties; // return array
     }
 
 
@@ -146,7 +160,7 @@ class User {
     public function create(){
         global $database;
 
-        $properties = $this->properties(); // Will return all the properties of this class
+        $properties = $this->clean_properties(); // Will return all the properties of this class
 
         $sql = "INSERT INTO " . User::$db_table . "(" . implode(",", array_keys($properties)) . ")"; // implode() join array elements with a string
         $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";
@@ -172,7 +186,7 @@ class User {
         // $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
         // $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
 
-        $properties = $this->properties();
+        $properties = $this->clean_properties();
         $properties_pairs = array();
 
         foreach($properties as $key => $value){
