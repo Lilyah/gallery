@@ -6,6 +6,7 @@ class User {
 
     /* Properties
     */
+    protected static $db_table = "users"; // Makes the method below more flexible, because we can use them with different tables
     public $user_id;
     public $username;
     public $user_password;
@@ -131,7 +132,7 @@ class User {
     public function create(){
         global $database;
 
-        $sql = "INSERT INTO users (username, user_password, user_first_name, user_last_name) ";
+        $sql = "INSERT INTO " . User::$db_table . " (username, user_password, user_first_name, user_last_name) ";
         $sql .= "VALUES ('";
         $sql .= $database->escape_string($this->username) . "', '";
         $sql .= $database->escape_string($this->user_password) . "', '";
@@ -151,7 +152,7 @@ class User {
     public function update(){
         global $database;
 
-        $sql = "UPDATE users SET ";
+        $sql = "UPDATE " . User::$db_table . " SET ";
         $sql .= "username= '" . $database->escape_string($this->username) ."', ";
         $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
         $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
@@ -168,7 +169,7 @@ class User {
     public function delete(){
         global $database;
 
-        $sql = "DELETE FROM users WHERE ";
+        $sql = "DELETE FROM " . User::$db_table . " WHERE ";
         $sql .= "user_id= " . $database->escape_string($this->user_id);
         $sql .= " LIMIT 1";
 
