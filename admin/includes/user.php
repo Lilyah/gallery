@@ -31,14 +31,14 @@ class User {
             D. Returns the object in the $the_object_array variable that it gets from the  instantantion method.
             E. And that will be the result that find_all() returns when we use User::find_all()
     */
-    public static function find_all_users(){
-        return User::find_this_query("SELECT * FROM users");
+    public static function find_all(){
+        return User::find_this_query("SELECT * FROM " . User::$db_table . " ");
     }
 
     // Finding user by id
-    public static function find_users_by_id($user_id){
+    public static function find_by_id($user_id){
         global $database;
-        $the_result_array = User::find_this_query("SELECT * FROM users WHERE user_id = $user_id");
+        $the_result_array = User::find_this_query("SELECT * FROM " . User::$db_table . " WHERE user_id = $user_id");
 
         /* ONE way of doing this  
         */
@@ -77,7 +77,7 @@ class User {
         $username = $database->escape_string($username);
         $user_password = $database->escape_string($user_password);
 
-        $sql = "SELECT * FROM users WHERE ";
+        $sql = "SELECT * FROM " . User::$db_table . " WHERE ";
         $sql .= "username = '{$username}' ";
         $sql .= "AND user_password = '{$user_password}' ";
         $sql .= "LIMIT 1";
