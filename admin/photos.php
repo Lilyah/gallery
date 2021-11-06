@@ -26,6 +26,34 @@
                             Photos
                             <small>Subheading</small>
                         </h1>
+
+                        <h2>
+
+                            <?php
+
+                            /*** Testing find_all() method of class Photo extends Db_object ***/
+                            // $photos = Photo::find_all();
+                            // foreach($photos as $photo){
+                            // echo $photo->photo_title;
+                            // };
+
+                            /*** Testing create() method of class Photo extends Db_object ***/
+                            // $photo = new Photo();
+
+                            // Entering some static info for our properties
+                            // $photo->photo_title = "photo test title 2";
+                            // $photo->photo_description = "photo test description";
+                            // $photo->photo_filename = "photo.png";
+                            // $photo->photo_type = "image";
+                            // $photo->photo_size = '15';
+                        
+                            //Calling create method for testing
+                            // $photo->create();
+
+                            ?>
+
+                        </h2>
+
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
