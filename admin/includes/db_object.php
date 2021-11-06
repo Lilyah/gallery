@@ -82,7 +82,7 @@ class Db_object {
         $calling_class = get_called_class(); // Build-in function for detecting the calling class
         $the_object = new $calling_class; // Instantiate the calling class
 
-        /* The foreach code below is actually doing this here
+        /* The foreach code below is actually doing something this here
         */
         // $user->user_id = $found_user['user_id'];
         // $user->username = $found_user['username'];
@@ -98,6 +98,98 @@ class Db_object {
         return $the_object;
     }
 
+
+    // Pulling out the properties of the class where the method is called
+    protected function properties(){
+        $properties = array();
+        foreach(static::$db_table_fields as $db_field){
+            if(property_exists($this, $db_field)){
+                $properties[$db_field] = $this->$db_field;
+            }
+        }
+
+        return $properties; // returning array with keys and values
+    }
+
+    // Using $database->escape_string() for array values
+    protected function clean_properties(){
+        global $database;
+        
+        $clean_properties = array();
+        // Loop throw %this->properties() and pull out the keys and the values
+        foreach($this->properties() as $key => $value){
+            $clean_properties[$key] = $database->escape_string($value); // cleaning the pulled out values with $database->escape_string($value) and asigned them to $clean_properties[$key]
+        }
+ 
+        return $clean_properties; // return array
+     }
+
+
+    // Check if the record exists. If the record exists it will update it, if doesn't exist will create it
+    public function save(){
+        return isset($this->user_id) ? $this->update() : $this->create();
+    }
+
+
+    // Create record method
+    public function create(){
+        global $database;
+
+        $properties = $this->clean_properties(); // Will return all the properties of this class
+
+        $sql = "INSERT INTO " . static::$db_table . "(" . implode(",", array_keys($properties)) . ")"; // implode() join array elements with a string
+        $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";
+
+        if($database->query($sql)){
+            $this->user_id = $database->the_insert_id(); // Pulling the user_id of the last record and asigned in $this->user_id
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Update record method
+    public function update(){
+        global $database;
+
+        // The code below actualy is doing something like this
+        // $sql = "UPDATE " . User::$db_table . " SET ";
+        // $sql .= "username= '" . $database->escape_string($this->username) ."', ";
+        // $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
+        // $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
+        // $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
+        // $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+
+        $properties = $this->clean_properties();
+        $properties_pairs = array();
+
+        foreach($properties as $key => $value){
+            $properties_pairs[] = "{$key}='{$value}'";
+        }
+
+        $sql = "UPDATE " . static::$db_table . " SET ";
+        $sql .= implode(", ", $properties_pairs);
+        $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
+
+    // Delete record method
+    public function delete(){
+        global $database;
+
+        $sql = "DELETE FROM " . static::$db_table . " WHERE ";
+        $sql .= "user_id= " . $database->escape_string($this->user_id);
+        $sql .= " LIMIT 1";
+
+        $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
 
 }
 
