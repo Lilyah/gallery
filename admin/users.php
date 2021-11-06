@@ -30,13 +30,13 @@
                         <h2>
                         <?php
 
-                            /*** Testing find_all() method of User ***/
-                            $users = User::find_all();
-                            foreach($users as $user){
-                                echo $user->username;
-                            };
+                            /*** Testing find_all() method of class User extends Db_object ***/
+                            // $users = User::find_all();
+                            // foreach($users as $user){
+                            //     echo $user->username;
+                            // };
 
-                            /*** Testing create() method of User ***/
+                            /*** Testing create() method of class User extends Db_object ***/
                             // $user = new User();
 
                             // Entering some static info for our properties
@@ -48,16 +48,16 @@
                             //Calling create method for testing
                             //$user->create();
 
-                            /*** Testing update() method of User ***/
+                            /*** Testing update() method of class User extends Db_object ***/
                             // $user = User::find_users_by_id(3);
                             // $user->user_last_name = "Updated last name";
                             // $user->update();
 
-                            /*** Testing delete() method of User ***/
+                            /*** Testing delete() method of class User extends Db_object ***/
                             // $user = User::find_users_by_id(3);
                             // $user->delete();
 
-                            /*** Testing save() method of User ***/
+                            /*** Testing save() method of class User extends Db_object ***/
                             /* 1 */
                             // $user = User::find_users_by_id(2);
                             // $user->username= "Maya-2";
