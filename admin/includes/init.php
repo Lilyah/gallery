@@ -8,6 +8,7 @@ include("config.php");
 require("database.php");
 require("db_object.php");
 require("user.php");
+require("photo.php");
 require("session.php");
 
 ?>
