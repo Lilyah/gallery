@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2021 at 11:27 AM
+-- Generation Time: Nov 06, 2021 at 04:47 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -33,7 +33,7 @@ CREATE TABLE `photos` (
   `photo_description` text NOT NULL,
   `photo_filename` varchar(255) NOT NULL,
   `photo_type` varchar(255) NOT NULL,
-  `photo_zise` int(11) NOT NULL
+  `photo_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -59,7 +59,9 @@ INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_first_name`, 
 (2, 'Maya-2', '123', 'Maya', 'Lanz'),
 (5, 'Maya-3', '', '', ''),
 (7, 'SamJ', '123', 'Updated first name', 'Updated last name-2'),
-(8, 'SamJ', '123', 'Sam', 'Johnes');
+(8, 'SamJ', '123', 'Sam', 'Johnes'),
+(9, 'SamJ23', '123', 'Sam', 'Johnes'),
+(10, 'SamJ23', '123', 'Sam', 'Johnes');
 
 --
 -- Indexes for dumped tables
@@ -91,7 +93,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
