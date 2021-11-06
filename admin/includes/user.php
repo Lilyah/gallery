@@ -34,7 +34,7 @@ class User extends Db_object {
         $sql .= "AND user_password = '{$user_password}' ";
         $sql .= "LIMIT 1";
 
-        $the_result_array = User::find_this_query($sql);
+        $the_result_array = User::find_by_query($sql);
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
