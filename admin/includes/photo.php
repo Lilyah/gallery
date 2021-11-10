@@ -45,8 +45,8 @@ class Photo extends Db_object {
         } else { // If there are no errors the data will be submited
             $this->photo_filename     = basename($file['name']); // asign the key 'name' go the object property "filename"
             $this->tmp_path     = $file['tmp_name'];
-            $this->photo_type   = $file['photo_type'];
-            $this->photo_size   = $file['photo_size'];
+            $this->photo_type   = $file['type'];
+            $this->photo_size   = $file['size'];
         }
 
     }
