@@ -4,8 +4,20 @@ if(!$session->is_signed_in()){
     redirect("login.php");
 }
 
+$message = "";
+// Checking for $_POST['submit]
+if(isset($_POST['submit'])){
+    $photo = new Photo(); // Instantiate the object
+    $photo->photo_title = $_POST['photo_title']; // Assigning $_POST['photo_title] to $photo
+    $photo->set_file($_FILES['file_upload']);
 
+    if($photo->save()){
+        $message = "Photo uploaded Succesfully"; // If method save() returns true it will return this message
 
+    } else {
+        $message = join("<br>", $photo->errors); // If method save() returns false it will return errors from errors array in class Photo 
+    }
+}
 
 ?>
 
@@ -37,6 +49,7 @@ if(!$session->is_signed_in()){
                         </h1>
                         
                         <div class="col-md-6">
+                            <?php echo $message; ?>
                             <form method="post" action="upload.php" enctype="multipart/form-data">
 
                                 <div class="form-group">
