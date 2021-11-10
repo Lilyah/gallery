@@ -1,4 +1,14 @@
-<?php include("includes/header.php"); ?>
+<?php 
+
+include("includes/header.php"); 
+
+if(!$session->is_signed_in()){
+    redirect("login.php");
+}
+
+$photos = Photo::find_all(); // Instantiating class Photo
+
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -67,13 +77,29 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>                                    
-                                        <td></td>                                    
-                                    </tr>
+                                    
+                                    <?php foreach ($photos as $photo) : ?>
+
+                                        <tr>
+                                            <td>
+                                                <img src="http://placehold.it/62x62">
+                                            </td>
+                                            <td>
+                                                <?php echo $photo->photo_id; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $photo->photo_filename; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $photo->photo_title; ?>
+                                            </td>                                    
+                                            <td>
+                                                <?php echo $photo->photo_size; ?>
+                                            </td>                                    
+                                        </tr>
+
+                                    <?php endforeach;?>
+
                                 </tbody>
                             </table>
                         </div>
