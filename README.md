@@ -40,8 +40,8 @@
 `memory_limit=128M`
 `max_input_time=-1 or -no limit`
 `max_execution_time=30 seconds`
-- Permissions on upload directory for files 
-`Read & Write`
+- Permissions on upload directory for files
+`gallery/admin/images : Read & Write`
 
 ## Project Status
 Project is: _in progress_
