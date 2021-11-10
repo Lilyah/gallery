@@ -82,7 +82,7 @@ $photos = Photo::find_all(); // Instantiating class Photo
 
                                         <tr>
                                             <td>
-                                                <img src="http://placehold.it/62x62">
+                                                <img src="<?php echo $photo->picture_path(); ?>">
                                             </td>
                                             <td>
                                                 <?php echo $photo->photo_id; ?>
