@@ -43,12 +43,54 @@ class Photo extends Db_object {
             $this->errors[] = $this->upload_errors_array[$file['error']];
             return false;
         } else { // If there are no errors the data will be submited
-            $this->filename     = basename($file['name']); // asign the key 'name' go the object property "filename"
+            $this->photo_filename     = basename($file['name']); // asign the key 'name' go the object property "filename"
             $this->tmp_path     = $file['tmp_name'];
             $this->photo_type   = $file['photo_type'];
             $this->photo_size   = $file['photo_size'];
         }
 
+    }
+
+
+    //
+    public function save(){
+        // Error checking
+        if($this->photo_id){
+            $this->update();
+        } else {
+            // If there are errors will return false
+            if(!empty($this->errors)){ 
+                return false;
+            }
+
+            // If the file is empty or the temp path is empty
+            if(empty($this->photo_filename) || empty($this->tmp_path)){
+                $this->errors[] = "The file was not available";
+                return false;
+            }
+
+            //photo_filename comes from set_file() method $this->photo_filename = basename($file['name']); 
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->photo_filename;
+
+            // If the filename already exists
+            if(file_exists($target_path)){
+                $this->errors[] = "The file {$this->photo_filename} already exists";
+                return false;
+            }
+
+            // Moving the file from tmp to permanent location
+            // move_uploaded_file is build-in function which moves an uploaded file to a new location ($target_path). Return true or false
+            if(move_uploaded_file($this->tmp_path, $target_path)){
+                if($this->create()){
+                    unset($this->tmp_path);
+                    return true;
+                }
+            } else { 
+                // If for some reason the file was not uploaded 
+                $this->errors[] = "Check for proper permissions on file directory";
+                return false;
+            }
+        }
     }
 }
 
