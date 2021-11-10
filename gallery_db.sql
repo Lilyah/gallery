@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2021 at 04:47 PM
+-- Generation Time: Nov 10, 2021 at 07:32 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -36,6 +36,15 @@ CREATE TABLE `photos` (
   `photo_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `photos`
+--
+
+INSERT INTO `photos` (`photo_id`, `photo_title`, `photo_description`, `photo_filename`, `photo_type`, `photo_size`) VALUES
+(4, 'Silver car', '', 'images-8.jpg', 'image/jpeg', 20810),
+(5, 'Red car', '', 'images-6.jpg', 'image/jpeg', 21886),
+(6, 'Blue car', '', 'images-9.jpg', 'image/jpeg', 21108);
+
 -- --------------------------------------------------------
 
 --
@@ -61,7 +70,9 @@ INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_first_name`, 
 (7, 'SamJ', '123', 'Updated first name', 'Updated last name-2'),
 (8, 'SamJ', '123', 'Sam', 'Johnes'),
 (9, 'SamJ23', '123', 'Sam', 'Johnes'),
-(10, 'SamJ23', '123', 'Sam', 'Johnes');
+(10, 'SamJ23', '123', 'Sam', 'Johnes'),
+(11, 'SamJ', '123', 'Sam', 'Johnes'),
+(12, 'SamJ', '123', 'Sam', 'Johnes');
 
 --
 -- Indexes for dumped tables
@@ -87,13 +98,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
