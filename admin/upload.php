@@ -4,6 +4,9 @@ if(!$session->is_signed_in()){
     redirect("login.php");
 }
 
+
+
+
 ?>
 
         <!-- Navigation -->
@@ -32,14 +35,23 @@ if(!$session->is_signed_in()){
                             Upload
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        
+                        <div class="col-md-6">
+                            <form method="post" action="upload.php" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <input type="text" name="photo_title" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="file" name="file_upload">
+                                </div>
+
+                                <input type="submit" name="submit">
+
+                            </form>
+                        </div>
+
                     </div>
                 </div>
                 <!-- /.row -->
