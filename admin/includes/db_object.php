@@ -29,7 +29,7 @@ class Db_object {
     // Finding record by id
     public static function find_by_id($id){
         global $database;
-        $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE user_id = $id");
+        $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id = $id");
 
         /* ONE way of doing this  
         */
@@ -83,7 +83,7 @@ class Db_object {
 
         /* The foreach code below is actually doing something this here
         */
-        // $user->user_id = $found_user['user_id'];
+        // $user->id = $found_user['id'];
         // $user->username = $found_user['username'];
         // $user->user_password = $found_user['user_password'];
         // $user->user_first_name = $found_user['user_first_name'];
@@ -126,7 +126,7 @@ class Db_object {
 
     // Check if the record exists. If the record exists it will update it, if doesn't exist will create it
     public function save(){
-        return isset($this->user_id) ? $this->update() : $this->create();
+        return isset($this->id) ? $this->update() : $this->create();
     }
 
 
@@ -140,7 +140,7 @@ class Db_object {
         $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";
 
         if($database->query($sql)){
-            $this->user_id = $database->the_insert_id(); // Pulling the user_id of the last record and asigned in $this->user_id
+            $this->id = $database->the_insert_id(); // Pulling the id of the last record and asigned in $this->id
             return true;
         } else {
             return false;
@@ -158,7 +158,7 @@ class Db_object {
         // $sql .= "user_password= '" . $database->escape_string($this->user_password) ."', ";
         // $sql .= "user_first_name= '" . $database->escape_string($this->user_first_name) ."', ";
         // $sql .= "user_last_name= '" . $database->escape_string($this->user_last_name) ."' ";
-        // $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+        // $sql .= " WHERE id= " . $database->escape_string($this->id);
 
         $properties = $this->clean_properties();
         $properties_pairs = array();
@@ -169,7 +169,7 @@ class Db_object {
 
         $sql = "UPDATE " . static::$db_table . " SET ";
         $sql .= implode(", ", $properties_pairs);
-        $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+        $sql .= " WHERE id= " . $database->escape_string($this->id);
 
         $database->query($sql);
 
@@ -182,7 +182,7 @@ class Db_object {
         global $database;
 
         $sql = "DELETE FROM " . static::$db_table . " WHERE ";
-        $sql .= "user_id= " . $database->escape_string($this->user_id);
+        $sql .= "id= " . $database->escape_string($this->id);
         $sql .= " LIMIT 1";
 
         $database->query($sql);
