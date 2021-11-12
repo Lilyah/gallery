@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2021 at 07:32 PM
+-- Generation Time: Nov 12, 2021 at 01:12 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `photos` (
-  `photo_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `photo_title` varchar(255) NOT NULL,
   `photo_description` text NOT NULL,
   `photo_filename` varchar(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `photos` (
 -- Dumping data for table `photos`
 --
 
-INSERT INTO `photos` (`photo_id`, `photo_title`, `photo_description`, `photo_filename`, `photo_type`, `photo_size`) VALUES
+INSERT INTO `photos` (`id`, `photo_title`, `photo_description`, `photo_filename`, `photo_type`, `photo_size`) VALUES
 (4, 'Silver car', '', 'images-8.jpg', 'image/jpeg', 20810),
 (5, 'Red car', '', 'images-6.jpg', 'image/jpeg', 21886),
 (6, 'Blue car', '', 'images-9.jpg', 'image/jpeg', 21108);
@@ -52,7 +52,7 @@ INSERT INTO `photos` (`photo_id`, `photo_title`, `photo_description`, `photo_fil
 --
 
 CREATE TABLE `users` (
-  `user_id` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_first_name` varchar(255) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_first_name`, `user_last_name`) VALUES
+INSERT INTO `users` (`id`, `username`, `user_password`, `user_first_name`, `user_last_name`) VALUES
 (1, 'lily', '123', 'Lily', 'Boz'),
 (2, 'Maya-2', '123', 'Maya', 'Lanz'),
 (5, 'Maya-3', '', '', ''),
@@ -82,13 +82,13 @@ INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_first_name`, 
 -- Indexes for table `photos`
 --
 ALTER TABLE `photos`
-  ADD PRIMARY KEY (`photo_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -98,13 +98,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
