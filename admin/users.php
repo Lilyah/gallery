@@ -43,18 +43,18 @@
                             // $user->username = "SamJ";
                             // $user->user_password = "123";
                             // $user->user_first_name = "Sam";
-                            // $user->user_last_name = "Johnes";
+                            // $user->user_last_name = "Johnes33333333";
 
                             //Calling create method for testing
-                            //$user->create();
+                            // $user->create();
 
                             /*** Testing update() method of class User extends Db_object ***/
-                            // $user = User::find_users_by_id(3);
+                            // $user = User::find_by_id(13);
                             // $user->user_last_name = "Updated last name";
                             // $user->update();
 
                             /*** Testing delete() method of class User extends Db_object ***/
-                            // $user = User::find_users_by_id(3);
+                            // $user = User::find_by_id(13);
                             // $user->delete();
 
                             /*** Testing save() method of class User extends Db_object ***/
