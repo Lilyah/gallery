@@ -8,7 +8,7 @@ class Photo extends Db_object {
     */
     protected static $db_table = "photos"; // Makes the method below more flexible, because we can use them with different tables
     protected static $db_table_fields = array('photo_title', 'photo_description', 'photo_filename', 'photo_type', 'photo_size');
-    public $photo_id;
+    public $id;
     public $photo_title;
     public $photo_description;
     public $photo_filename;
@@ -62,7 +62,7 @@ class Photo extends Db_object {
     //
     public function save(){
         // Error checking
-        if($this->photo_id){
+        if($this->id){
             $this->update();
         } else {
             // If there are errors will return false
