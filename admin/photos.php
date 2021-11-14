@@ -82,7 +82,7 @@ $photos = Photo::find_all(); // Instantiating class Photo
 
                                         <tr>
                                             <td>
-                                                <img src="<?php echo $photo->picture_path(); ?>">
+                                                <img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path(); ?>">
                                                 <div class="pictures_link">
                                                     <a href="#">View</a>
                                                     <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
