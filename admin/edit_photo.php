@@ -18,6 +18,8 @@ if(empty($_GET['id'])){
             $photo->photo_caption = $_POST['photo_caption'];
             $photo->photo_alternate_text = $_POST['photo_alternate_text'];
             $photo->photo_description = $_POST['photo_description'];
+
+            $photo->save(); // Method in class Db_object
         }
 
 
@@ -58,7 +60,7 @@ if(empty($_GET['id'])){
                             <small>Subheading</small>
                         </h1>
 
-                        <form action="edit_photo.php" method="POST">
+                        <form action="" method="POST">
 
                             <h2>
 
