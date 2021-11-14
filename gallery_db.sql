@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2021 at 01:12 PM
+-- Generation Time: Nov 14, 2021 at 03:45 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -30,8 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `photos` (
   `id` int(11) NOT NULL,
   `photo_title` varchar(255) NOT NULL,
+  `photo_caption` varchar(255) NOT NULL,
   `photo_description` text NOT NULL,
   `photo_filename` varchar(255) NOT NULL,
+  `photo_alternate_text` varchar(255) NOT NULL,
   `photo_type` varchar(255) NOT NULL,
   `photo_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,10 +42,10 @@ CREATE TABLE `photos` (
 -- Dumping data for table `photos`
 --
 
-INSERT INTO `photos` (`id`, `photo_title`, `photo_description`, `photo_filename`, `photo_type`, `photo_size`) VALUES
-(4, 'Silver car', '', 'images-8.jpg', 'image/jpeg', 20810),
-(5, 'Red car', '', 'images-6.jpg', 'image/jpeg', 21886),
-(6, 'Blue car', '', 'images-9.jpg', 'image/jpeg', 21108);
+INSERT INTO `photos` (`id`, `photo_title`, `photo_caption`, `photo_description`, `photo_filename`, `photo_alternate_text`, `photo_type`, `photo_size`) VALUES
+(4, 'Silver car', '', '', 'images-8.jpg', '', 'image/jpeg', 20810),
+(9, 'Red car', '', '', 'images-6.jpg', '', 'image/jpeg', 21886),
+(10, 'New Blue car', 'New Some caption here', 'New Blue car description', 'images-9.jpg', 'New blue car', 'image/jpeg', 21108);
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
