@@ -7,11 +7,13 @@ class Photo extends Db_object {
     /* Properties
     */
     protected static $db_table = "photos"; // Makes the method below more flexible, because we can use them with different tables
-    protected static $db_table_fields = array('photo_title', 'photo_description', 'photo_filename', 'photo_type', 'photo_size');
+    protected static $db_table_fields = array('photo_title', 'photo_caption', 'photo_description', 'photo_filename', 'photo_alternate_text','photo_type', 'photo_size');
     public $id;
     public $photo_title;
+    public $photo_caption;
     public $photo_description;
     public $photo_filename;
+    public $photo_alternate_text;
     public $photo_type;
     public $photo_size;
 
