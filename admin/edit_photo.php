@@ -26,11 +26,6 @@ if(empty($_GET['id'])){
     }
 }
 
-
-
-
-//$photos = Photo::find_all(); // Instantiating class Photo
-
 ?>
 
         <!-- Navigation -->
@@ -61,33 +56,6 @@ if(empty($_GET['id'])){
                         </h1>
 
                         <form action="" method="POST">
-
-                            <h2>
-
-                                <?php
-
-                                /*** Testing find_all() method of class Photo extends Db_object ***/
-                                // $photos = Photo::find_all();
-                                // foreach($photos as $photo){
-                                // echo $photo->photo_title;
-                                // };
-
-                                /*** Testing create() method of class Photo extends Db_object ***/
-                                // $photo = new Photo();
-
-                                // Entering some static info for our properties
-                                // $photo->photo_title = "photo test title 2";
-                                // $photo->photo_description = "photo test description";
-                                // $photo->photo_filename = "photo.png";
-                                // $photo->photo_type = "image";
-                                // $photo->photo_size = '15';
-                                
-                                //Calling create method for testing
-                                // $photo->create();
-
-                                ?>
-
-                            </h2>
 
                             <div class="col-md-8">
 
@@ -150,7 +118,6 @@ if(empty($_GET['id'])){
                                         <div class="info-box-footer clearfix">
                                             <div class="info-box-delete pull-left">
                                                 <a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg">Delete</a>
-                                                <!-- <a href="#" class="btn btn-danger btn-lg">Delete</a> -->
                                             </div>
 
                                             <div class="info-box-update pull-right">
