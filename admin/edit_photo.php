@@ -81,8 +81,8 @@ if(empty($_GET['id'])){
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="caption">Description</label>
-                                    <textarea class="form-control" name="photo_description" id="" cols="30" rows="10"><?php echo $photo->photo_description; ?></textarea>
+                                    <label for="summernote">Description</label>
+                                    <textarea class="form-control" name="photo_description" id="summernote" cols="30" rows="10"><?php echo $photo->photo_description; ?></textarea>
                                 </div>
 
                             </div>

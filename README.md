@@ -23,7 +23,7 @@
 - MySQL DB
 
 ## Features
-- Feature name - [Feature placeholder](https://feturelink.com)
+- Summernote, WYSIWYG Editor on Bootstrap - [Summernote](https://summernote.org/)
 
 
 ## Screenshots
