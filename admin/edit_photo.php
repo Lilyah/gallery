@@ -97,6 +97,12 @@ if(empty($_GET['id'])){
                                 </div>
 
                                 <div class="form-group">
+                                    <a class="thumbnail" href="#">
+                                        <img src="<?php echo $photo->picture_path(); ?>">
+                                    </a>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="caption">Caption</label>
                                     <input type="text" name="photo_caption" class="form-control" value="<?php echo $photo->photo_caption; ?>">
                                 </div>
