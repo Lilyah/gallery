@@ -50,6 +50,18 @@ class User extends Db_object {
     }
 
 
+    // Delete the photo file from the db and from the server/upload folder
+    public function delete_user(){
+        if($this->delete()){
+            $target_path = SITE_ROOT.DS.'admin'.DS.$this->photo_path_placeholder();
+
+            // Deleting the image from the server/upload folder
+            return unlink($target_path) ? true : false; 
+        } else {
+            return false;
+        }
+    }
+
 
 }
 
