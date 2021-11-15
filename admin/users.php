@@ -1,4 +1,14 @@
-<?php include("includes/header.php"); ?>
+<?php 
+
+include("includes/header.php"); 
+
+if(!$session->is_signed_in()){
+    redirect("login.php");
+}
+
+$users = User::find_all(); // Instantiating class Photo
+
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -27,59 +37,52 @@
                             <small>Subheading</small>
                         </h1>
 
-                        <h2>
-                        <?php
+                        <div class="col-md-12">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Photo</th>
+                                        <th>Username</th>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                    </tr>
+                                </thead>
 
-                            /*** Testing find_all() method of class User extends Db_object ***/
-                            // $users = User::find_all();
-                            // foreach($users as $user){
-                            //     echo $user->username;
-                            // };
+                                <tbody>
+                                    
+                                    <?php foreach ($users as $user) : ?>
 
-                            /*** Testing create() method of class User extends Db_object ***/
-                            // $user = new User();
+                                        <tr>
+                                            <td>
+                                                <?php echo $user->id; ?>
+                                            </td>
+                                            <td>
+                                                <img class="user-photo" src="<?php echo $user->photo_path_placeholder(); ?>">
+                                            </td>
+                                            <td>
+                                                <?php echo $user->username; ?>
+                                                <div class="action_links">
+                                                    <a href="#">View</a>
+                                                    <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
+                                                    <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                                                </div>
+                                            </td>                                    
+                                            <td>
+                                                <?php echo $user->user_first_name; ?>
+                                            </td>                                    
+                                            <td>
+                                                <?php echo $user->user_last_name; ?>
+                                            </td>                                    
+                                        </tr>
 
-                            // Entering some static info for our properties
-                            // $user->username = "SamJ";
-                            // $user->user_password = "123";
-                            // $user->user_first_name = "Sam";
-                            // $user->user_last_name = "Johnes33333333";
+                                    <?php endforeach;?>
 
-                            //Calling create method for testing
-                            // $user->create();
-
-                            /*** Testing update() method of class User extends Db_object ***/
-                            // $user = User::find_by_id(13);
-                            // $user->user_last_name = "Updated last name";
-                            // $user->update();
-
-                            /*** Testing delete() method of class User extends Db_object ***/
-                            // $user = User::find_by_id(13);
-                            // $user->delete();
-
-                            /*** Testing save() method of class User extends Db_object ***/
-                            /* 1 */
-                            // $user = User::find_users_by_id(2);
-                            // $user->username= "Maya-2";
-                            // $user->save(); // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
-
-                            /* 2 */
-                            // $user = new User;
-                            // $user->username= "Maya-3";
-                            // $user->save(); // Check if the user exists. If the user exists it will update it, if doesn't exist will create it
+                                </tbody>
+                            </table>
+                        </div>
 
 
-                        ?>
-
-                        </h2>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
