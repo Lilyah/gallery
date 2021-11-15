@@ -10,10 +10,14 @@ class User extends Db_object {
     protected static $db_table_fields = array('username', 'user_password', 'user_first_name', 'user_last_name');
     public $user_id;
     public $username;
+    public $user_photo;
     public $user_password;
     public $user_first_name;
     public $user_last_name;
 
+    public $tmp_path;
+    public $upload_directory = "images";
+    public $user_photo_placeholder = "http://placehold.it/400x400&text=image";
 
     /* Methods
     */
@@ -37,6 +41,12 @@ class User extends Db_object {
         $the_result_array = User::find_by_query($sql);
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
+    }
+
+
+    // User photo path
+    public function photo_path_placeholder() {
+        return empty($this->user_photo) ? $this->user_photo_placeholder : $this->upload_directory.DS.$this->user_photo;
     }
 
 
