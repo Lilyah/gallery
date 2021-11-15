@@ -37,3 +37,8 @@ padding: 10px;
   width: 200px;
   border-radius: 5px;
 }
+
+.user-photo {
+  width: 60px; 
+  border-radius: 50%;
+}
