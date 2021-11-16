@@ -42,8 +42,8 @@ class Session {
     // Login method
     public function login($user){
         if($user){
-            // Explained from right to lef: First we take the id from the $user then we store it inside $_SESSION['user_id'] and then finally w assign in to the current instance with the $this->user_id
-            $this->user_id = $_SESSION['user_id'] = $user->user_id;
+            // Explained from right to left: First we take the id from the $user (class User, $id) then we store it inside $_SESSION['user_id'] and then finally w assign in to the current instance with the $this->user_id
+            $this->user_id = $_SESSION['user_id'] = $user->id;
             $this->signed_in = true;
         }
     }
