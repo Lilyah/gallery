@@ -8,7 +8,7 @@ class User extends Db_object {
     */
     protected static $db_table = "users"; // Makes the method below more flexible, because we can use them with different tables
     protected static $db_table_fields = array('username', 'user_photo', 'user_password', 'user_first_name', 'user_last_name');
-    public $user_id;
+    public $id;
     public $username;
     public $user_photo;
     public $user_password;
@@ -98,8 +98,9 @@ class User extends Db_object {
     //
     public function save_user_and_photo(){
         // Error checking
-        if($this->user_id){
+        if($this->id){
             $this->update();
+            redirect("users.php");
         } else {
             // If there are errors will return false
             if(!empty($this->errors)){ 
