@@ -12,9 +12,6 @@ if(empty($_GET['id'])){
 } else {
     $user = User::find_by_id($_GET['id']); // Instantiating class User and getting the user id from the url
 
-
-    // ! Can't update ONLY PHOTO. When click Edit user and try to change ONLY THE PHOTO it can't
-    // TODO: 
     if(isset($_POST['update'])){
         if($user){
             $user->username = $_POST['username'];
