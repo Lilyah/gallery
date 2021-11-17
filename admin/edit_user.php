@@ -12,6 +12,9 @@ if(empty($_GET['id'])){
 } else {
     $user = User::find_by_id($_GET['id']); // Instantiating class User and getting the user id from the url
 
+
+    // ! Can't update ONLY PHOTO. When click Edit user and try to change ONLY THE PHOTO it can't
+    // TODO: 
     if(isset($_POST['update'])){
         if($user){
             $user->username = $_POST['username'];
@@ -21,7 +24,9 @@ if(empty($_GET['id'])){
 
             $user->set_file($_FILES['user_photo']);
 
-            $user->save_user_and_photo(); // Method in class User
+            $user->save_user_photo(); // Method in class User; will save only the photo
+            $user->save(); // Method in class User; will save the data from inputs without photo 
+        
         }
     }
 }
@@ -87,7 +92,7 @@ if(empty($_GET['id'])){
 
                                 <div class="form-group">
                                     <label for="user password">Password</label>
-                                    <input type="password" name="user_password" class="form-control">
+                                    <input type="password" name="user_password" class="form-control" value="<?php echo $user->user_password; ?>">
                                 </div>
 
                                 <div class="form-group">

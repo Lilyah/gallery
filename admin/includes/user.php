@@ -95,46 +95,42 @@ class User extends Db_object {
     }
 
 
-    //
-    public function save_user_and_photo(){
+    // Saving the user photo in the db and the upload dir
+    public function save_user_photo(){
         // Error checking
-        if($this->id){
-            $this->update();
-            redirect("users.php");
-        } else {
+  
             // If there are errors will return false
             if(!empty($this->errors)){ 
                 return false;
             }
 
-            // If the file is empty or the temp path is empty
-            if(empty($this->user_photo) || empty($this->tmp_path)){
-                $this->errors[] = "The file was not available";
-                return false;
-            }
+            //If the file is empty or the temp path is empty
+            // if(empty($this->user_photo) || empty($this->tmp_path)){
+            //     $this->errors[] = "The file was not available";
+            //     return false;
+            // }
 
             //user_photo comes from set_file() method $this->user_photo = basename($file['name']); 
-            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_photo;
+            //$target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_photo;
+            $target_path = SITE_ROOT.DS.'admin'.DS.$this->photo_path_placeholder();
 
             // If the user_photo already exists
-            if(file_exists($target_path)){
-                $this->errors[] = "The file {$this->user_photo} already exists";
-                return false;
-            }
+            // if(file_exists($target_path)){
+            //     $this->errors[] = "The file {$this->user_photo} already exists";
+            //     return false;
+            // }
 
             // Moving the file from tmp to permanent location
             // move_uploaded_file is build-in function which moves an uploaded file to a new location ($target_path). Return true or false
             if(move_uploaded_file($this->tmp_path, $target_path)){
-                if($this->create()){
                     unset($this->tmp_path);
                     return true;
-                }
             } else { 
                 // If for some reason the file was not uploaded 
                 $this->errors[] = "Check for proper permissions on file directory";
                 return false;
             }
-        }
+        
     }
 
 

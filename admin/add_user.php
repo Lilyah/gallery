@@ -18,7 +18,8 @@ if(!$session->is_signed_in()){
 
             $user->set_file($_FILES['user_photo']);
 
-            $user->save_user_and_photo(); // Method in class User
+            $user->save_user_photo(); // Method in class User; will save only the photo
+            $user->save(); // Method in class User; will save the data from inputs without photo
         }
     }
 
