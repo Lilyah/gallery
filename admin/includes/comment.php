@@ -33,6 +33,23 @@ class Comment extends Db_object {
         }
     }
 
+
+    // Finding comments related to specific photo_id
+    public static function find_the_comments($photo_id) {
+        global $database;
+
+        // Using the method escape_string from class Db_object for cleaning the input info
+        $photo_id = $database->escape_string($photo_id);
+
+        $sql = "SELECT * FROM " . self::$db_table;
+        $sql.= " WHERE photo_id = " . $photo_id;
+        $sql.= " ORDER BY photo_id ASC";
+
+        $the_result_array = Comment::find_by_query($sql);
+
+        return !empty($the_result_array) ? array_shift($the_result_array) : false; 
+    }
+
 }
 
 
