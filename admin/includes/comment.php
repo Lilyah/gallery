@@ -17,9 +17,22 @@ class Comment extends Db_object {
     /* Methods
     */
     
-    // Method for 
-    
-    
+    // Method for self instantiation of this method
+    public static function create_comment($photo_id, $author="John Doe", $body="") {
+        if(!empty($photo_id) && !empty($author) && !empty($body)){
+            $comment = new Comment(); // Instantiation
+
+            // Assigning values to the properties
+            $comment->photo_id  = (int)$photo_id;
+            $comment->author    = $author;
+            $comment->body      = $body;
+
+            return $comment;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 
