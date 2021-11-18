@@ -1,5 +1,16 @@
 <?php
 
+require_once("admin/includes/init.php");
+
+// If we don't have an id it will redirect to index
+if(empty($_GET['id'])){
+    redirect("index.php");
+}
+
+$photo = Photo::find_by_id($_GET['id']);
+
+echo $photo->photo_title;
+
 if(isset($_POST['submit'])){
     echo "It works";
 }
