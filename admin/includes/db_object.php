@@ -135,6 +135,25 @@ class Db_object {
      }
 
 
+    // This is passing $_FILES['upload_file'] as an argument
+    public function set_file($file){
+        // Error checking
+        if(empty($file) || !$file || !is_array($file)){
+            $this->errors[] = "There was no file uploaded here";
+            return false;
+        } elseif ($file['error'] != 0){ // Error 0 is UPLOAD_ERR_OK => 'There is no error'
+            $this->errors[] = $this->upload_errors_array[$file['error']];
+            return false;
+        } else { // If there are no errors the data will be submited
+            $this->user_photo    = basename($file['name']); // asign the key 'name' go the object property "user_photo"
+            $this->tmp_path     = $file['tmp_name'];
+            $this->photo_type   = $file['type'];
+            $this->photo_size   = $file['size'];
+        }
+
+    }
+
+
     // Check if the record exists. If the record exists it will update it, if doesn't exist will create it
     public function save(){
         return isset($this->id) ? $this->update() : $this->create();
