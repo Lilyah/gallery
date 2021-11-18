@@ -1,4 +1,14 @@
-<?php include("includes/header.php"); ?>
+<?php 
+
+include("includes/header.php"); 
+
+if(!$session->is_signed_in()){
+    redirect("login.php");
+}
+
+$comments = Comment::find_all(); // Instantiating class Photo
+
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,14 +36,48 @@
                             Comments
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+
+                        <div class="col-md-12">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Photo ID</th>
+                                        <th>Author</th>
+                                        <th>Body</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    
+                                    <?php foreach ($comments as $comment) : ?>
+
+                                        <tr>
+                                            <td>
+                                                <?php echo $comment->id; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $comment->photo_id; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $comment->author; ?>
+                                            </td>                                    
+                                            <td>
+                                                <?php echo $comment->body; ?>
+                                            </td>                                                                     
+                                            <td>
+                                                <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                            </td>                                                                     
+                                        </tr>
+
+                                    <?php endforeach;?>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
                 </div>
                 <!-- /.row -->
