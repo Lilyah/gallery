@@ -72,7 +72,7 @@ $comments = Comment::find_the_comments($_GET['id']);
                                                 <?php echo $comment->body; ?>
                                             </td>                                                                     
                                             <td>
-                                                <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                                <a class="btn btn-danger" href="delete_photo_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
                                             </td>                                                                     
                                         </tr>
 
