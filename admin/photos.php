@@ -73,6 +73,7 @@ $photos = Photo::find_all(); // Instantiating class Photo
                                         <th>File Name</th>
                                         <th>Title</th>
                                         <th>Size</th>
+                                        <th>Comments</th>
                                     </tr>
                                 </thead>
 
@@ -100,6 +101,17 @@ $photos = Photo::find_all(); // Instantiating class Photo
                                             </td>                                    
                                             <td>
                                                 <?php echo $photo->photo_size; ?>
+                                            </td>                                    
+                                            <td>
+                                                <?php 
+
+                                                // Instantiating class Comment and using method find_the_comments for this specific id
+                                                $comments = Comment::find_the_comments($photo->id); ?>
+
+                                                <div class="action_links">
+                                                    <a href="photo_comment.php?id=<?php echo $photo->id; ?>"><?php echo count($comments)?></a>
+                                                </div>
+                                            
                                             </td>                                    
                                         </tr>
 
