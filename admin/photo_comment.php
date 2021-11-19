@@ -48,6 +48,7 @@ $comments = Comment::find_the_comments($_GET['id']);
                                     <tr>
                                         <th>ID</th>
                                         <th>Photo ID</th>
+                                        <th>Photo</th>
                                         <th>Author</th>
                                         <th>Body</th>
                                         <th></th>
@@ -64,6 +65,13 @@ $comments = Comment::find_the_comments($_GET['id']);
                                             </td>
                                             <td>
                                                 <?php echo $comment->photo_id; ?>
+                                            </td>
+                                            <td>
+                                                <?php  
+                                                    // Instantiating class Photo and using method find_by_id and passing $comment->photo_id as an id
+                                                    $photo = Photo::find_by_id($comment->photo_id);
+                                                ?>
+                                                <img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path(); ?>">
                                             </td>
                                             <td>
                                                 <?php echo $comment->author; ?>

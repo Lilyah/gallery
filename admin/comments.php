@@ -41,11 +41,11 @@ $comments = Comment::find_all(); // Instantiating class Photo
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Comment ID</th>
                                         <th>Photo ID</th>
+                                        <th>Photo</th>
                                         <th>Author</th>
                                         <th>Body</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
 
@@ -59,6 +59,13 @@ $comments = Comment::find_all(); // Instantiating class Photo
                                             </td>
                                             <td>
                                                 <?php echo $comment->photo_id; ?>
+                                            </td>
+                                            <td>
+                                                <?php  
+                                                    // Instantiating class Photo and using method find_by_id and passing $comment->photo_id as an id
+                                                    $photo = Photo::find_by_id($comment->photo_id);
+                                                ?>
+                                                <img class="admin-photo-thumbnail" src="<?php echo $photo->picture_path(); ?>">
                                             </td>
                                             <td>
                                                 <?php echo $comment->author; ?>
