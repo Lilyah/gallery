@@ -5,7 +5,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="text-center">Copyright &copy; 2021 Lilyah - <a href="https://github.com/Lilyah">https://github.com/Lilyah</a></p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
