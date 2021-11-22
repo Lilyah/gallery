@@ -128,5 +128,13 @@
                     </div>                        
                 </div>
 
+
+                <div class="row">
+                    <!-- Google Pie Chart -->
+                    <div id="piechart" style="width: 900px; height: 500px;"></div>
+                </div>
+
             </div>
             <!-- /.container-fluid -->
+
+
