@@ -1,4 +1,8 @@
-<?php include("includes/header.php"); ?>
+<?php 
+
+include("includes/header.php"); 
+
+$photos = Photo::find_all(); ?>
 
 
         <div class="row">
@@ -17,10 +21,10 @@
 
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+            <!-- <div class="col-md-4"> -->
 
             
-                 <?php include("includes/sidebar.php"); ?>
+                 <?php //include("includes/sidebar.php"); ?>
 
 
 
