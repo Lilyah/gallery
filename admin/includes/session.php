@@ -9,15 +9,28 @@ class Session {
     private $signed_in = false; // Default value is false
     public $user_id;
     public $message;
+    public $count;
 
 
     /* Methods
     */
     function __construct(){
         session_start();
+        $this->visitor_count();
         $this->check_the_login();
         $this->check_message();
     }
+
+
+    // Adding session count every time when we refresh the page
+    public function visitor_count() {
+        if(isset($_SESSION['count'])){
+            return $this->count = $_SESSION['count']++;
+        } else {
+            return $_SESSION['count'] = 1;
+        }
+    }
+
 
     // Method for displaying messages
     public function message($msg=""){
