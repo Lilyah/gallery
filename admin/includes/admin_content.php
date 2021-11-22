@@ -20,7 +20,7 @@
                                             </div>
 
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge">4</div>
+                                                <div class="huge"><?php echo $session->count; ?></div>
                                                 <div>New Views</div>
                                             </div>
 
