@@ -39,6 +39,18 @@ class Paginate extends Db_object {
         return ceil($this->items_total_count/$this->items_per_page);
     }
 
+
+    // Method for detecting is there are previous page; returns true or false
+    public function has_previous(){
+        return $this->previous() >=1 ? true : false;
+    }
+
+
+    // Method for detecting is there are next page; returns true or false
+    public function has_next(){
+        return $this->next() <= $this->page_total() ? true : false; // because page_total() is the max possible number
+    }
+
 }
 
 
