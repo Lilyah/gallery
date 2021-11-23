@@ -51,6 +51,13 @@ class Paginate extends Db_object {
         return $this->next() <= $this->page_total() ? true : false; // because page_total() is the max possible number
     }
 
+
+    // Method for offset
+    public function offset(){
+        // Offsets in mysql LIMIT clause start with 0. So if you want to start from the first page/record, you need to set the offset to 0
+        return ($this->current_page -1) * $this->items_per_page;
+    }
+
 }
 
 
