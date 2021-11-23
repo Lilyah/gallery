@@ -40,9 +40,33 @@ $photos = Photo::find_by_query($sql); // executing the query
 
                     </div>
 
+                    <div class="row">
 
+                            <ul class="pager">
 
-         
+                                <?php
+
+                                // If we have more than 1 page then will be displayed Next and Previous btns
+                                if($paginate->page_total() > 1){
+
+                                    // If we have next page then weill be displayed the Next btn
+                                    if($paginate->has_next()){
+                                        echo "<li class='next'><a href='index.php?page={$paginate->next()}'>Next</a></li>"; // Classes and hrefs are with single quotes because we are using them with php
+                                    }
+
+                                    // If we have previous page then weill be displayed the Previous btn
+                                    if($paginate->has_previous()){
+                                        echo "<li class='previous'><a href='index.php?page={$paginate->previous()}'>Previous</a></li>"; // Classes and hrefs are with single quotes because we are using them with php
+                                    }
+
+                                }
+
+                                
+                                ?>
+
+                            </ul>
+
+                    </div>
 
             </div>
 
