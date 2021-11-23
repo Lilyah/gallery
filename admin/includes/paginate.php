@@ -1,8 +1,7 @@
 <?php
 
-require_once("config.php");
 
-class Paginate extends Db_object {
+class Paginate {
 
     /* Properties
     */
