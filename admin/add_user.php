@@ -49,7 +49,6 @@ if(!$session->is_signed_in()){
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Add User
-                            <small>Subheading</small>
                         </h1>
 
                         <form action="" method="POST" enctype="multipart/form-data">

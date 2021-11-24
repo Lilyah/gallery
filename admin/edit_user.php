@@ -54,7 +54,6 @@ if(empty($_GET['id'])){
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Edit User
-                            <small>Subheading</small>
                         </h1>
 
                         <form action="" method="POST" enctype="multipart/form-data">
