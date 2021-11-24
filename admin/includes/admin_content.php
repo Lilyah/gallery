@@ -56,9 +56,9 @@
                                        </div>
                                    </div>
 
-                                    <a href="#">
+                                    <a href="photos">
                                         <div class="panel-footer">
-                                            <span class="pull-left">Total Photos in Gallery</span>
+                                            <span class="pull-left">Go to Photos</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                             <div class="clearfix"></div>
                                         </div>
@@ -86,9 +86,9 @@
                                         </div>
                                     </div>
 
-                                    <a href="#">
+                                    <a href="users">
                                         <div class="panel-footer">
-                                            <span class="pull-left">Total Users</span>
+                                            <span class="pull-left">Go to Users</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                             <div class="clearfix"></div>
                                         </div>
@@ -114,9 +114,9 @@
                                         </div>
                                     </div>
 
-                                    <a href="#">
+                                    <a href="comments">
                                         <div class="panel-footer">
-                                            <span class="pull-left">Total Comments</span>
+                                            <span class="pull-left">Go to Comments</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                             <div class="clearfix"></div>
                                         </div>
