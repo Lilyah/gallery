@@ -61,7 +61,7 @@ if(empty($_GET['id'])){
 
                             <div class="col-md-6 col-md-offset-3">
 
-                                <div class="form-group">
+                                <div class="form-group user-image-box">
                                     <a class="thumbnail" href="#" data-toggle="modal" data-target="#photo-library">
                                         <img src="<?php echo $user->photo_path_placeholder(); ?>">
                                     </a>
