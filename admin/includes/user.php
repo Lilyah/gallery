@@ -114,9 +114,19 @@ class User extends Db_object {
 
     // Method for php processing/updating information for modal
     public function ajax_save_user_image($user_photo, $user_id){
+        global $database;
+
+        $user_photo = $database->escape_string($user_photo);
+        $user_id = $database->escape_string($user_id);
+
         $this->user_photo = $user_photo;
         $this->id = $user_id;
-        $this->save();
+
+        $sql = "UPDATE " . self::$db_table . " SET user_photo = '{$this->user_photo}' ";
+        $sql.= " WHERE id = {$this->id} ";
+        $update_photo = $database->query($sql);
+
+        echo $this->photo_path_placeholder();
     }
 
 
