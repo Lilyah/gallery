@@ -31,7 +31,7 @@ $(document).ready(function() {
         type: "POST",
         success: function(data){
           if(!data.error){
-            alert(image_name);
+            location.reload(true);
           }
         }
 
