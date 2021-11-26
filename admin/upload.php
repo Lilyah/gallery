@@ -8,6 +8,7 @@ $message = "";
 // Checking for $_POST['submit]
 if(isset($_FILES['file'])){
     $photo = new Photo(); // Instantiate the object
+    $photo->user_id = $_SESSION['user_id'];
     $photo->photo_title = $_POST['photo_title']; // Assigning $_POST['photo_title] to $photo
     $photo->set_file($_FILES['file']);
 
