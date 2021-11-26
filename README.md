@@ -14,7 +14,7 @@
 
 
 ## General Information
-- The purpose of the project is to master PHP OOP. 
+- The purpose of the project is for developer to master PHP OOP. 
 
 ## Technologies Used
 - PHP - [version 7.*](https://www.php.net/)
@@ -46,7 +46,7 @@
 `gallery/admin/images : Read & Write`
 
 ## Project Status
-Project is: _in progress_
+Project is: _finished_
 
 
 ## Contact
