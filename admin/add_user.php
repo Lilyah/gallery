@@ -10,6 +10,7 @@ if(!$session->is_signed_in()){
     $user = new User; // Instantiating class User
 
     if(isset($_POST['create'])){
+        if(!empty(trim($_POST['username'])) & !empty(trim($_POST['user_password']))){
         if($user){
             $user->username = $_POST['username'];
             $user->user_first_name = $_POST['user_first_name'];
@@ -24,6 +25,9 @@ if(!$session->is_signed_in()){
             redirect("users");
             $session->message("The user has be created");
         }
+    } else { 
+        $session->message("Username and Password cannot be empty");
+    }
     }
 
 ?>
@@ -53,6 +57,8 @@ if(!$session->is_signed_in()){
                         <h1 class="page-header">
                             Add User
                         </h1>
+
+                        <p class="bg-danger"><?php echo $message; ?></p>
 
                         <form action="" method="POST" enctype="multipart/form-data">
 
