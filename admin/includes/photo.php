@@ -115,6 +115,19 @@ class Photo extends Db_object {
         }
     }
 
+
+    // Displaying sidebar data in modal in admin/edit_user
+    public static function display_sidebar_data($photo_id){ // We are getting the $photo_id 
+        $photo = Photo::find_by_id($photo_id); // We finding that record and assigning it to $photo
+
+        $output = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picture_path()}'></a> ";
+        $output.="<p>{$photo->photo_filename}</p>"; // Displaying the properties
+        $output.="<p>{$photo->photo_type}</p>";
+        $output.="<p>{$photo->photo_size}</p>";
+
+        echo $output;
+    }
+
 }
 
 
