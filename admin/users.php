@@ -35,6 +35,8 @@ $users = User::find_all(); // Instantiating class Photo
                         <h1 class="page-header">
                             Users
                         </h1>
+                        
+                        <p class="bg-success"><?php echo $message; ?></p>
 
                         <a href="add_user.php" class="btn btn-primary">Add User</a>
 

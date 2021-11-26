@@ -24,6 +24,9 @@ if(empty($_GET['id'])){
 
             $user->save_user_photo(); // Method in class User; will save only the photo
             $user->save(); // Method in class User; will save the data from inputs without photo 
+
+            redirect("users.php");
+            $session->message("The user has be updated");
         
         }
     }

@@ -20,6 +20,9 @@ if(empty($_GET['id'])){
             $photo->photo_description = $_POST['photo_description'];
 
             $photo->save(); // Method in class Db_object
+
+            redirect("photos");
+            $session->message("The photo has be updated");
         }
 
 

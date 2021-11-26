@@ -36,6 +36,8 @@ $photos = Photo::find_all(); // Instantiating class Photo
                             Photos
                         </h1>
 
+                        <p class="bg-success"><?php echo $message; ?></p>
+
                         <h2>
 
                             <?php

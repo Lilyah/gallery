@@ -20,6 +20,9 @@ if(!$session->is_signed_in()){
 
             $user->save_user_photo(); // Method in class User; will save only the photo
             $user->save(); // Method in class User; will save the data from inputs without photo
+
+            redirect("users");
+            $session->message("The user has be created");
         }
     }
 
