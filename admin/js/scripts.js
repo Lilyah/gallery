@@ -48,9 +48,6 @@ $(document).ready(function() {
             $(".user-image-box a img").prop('src', data);
           }
         }
-
-
-
       })
     });
 
