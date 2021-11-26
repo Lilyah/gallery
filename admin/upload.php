@@ -6,10 +6,10 @@ if(!$session->is_signed_in()){
 
 $message = "";
 // Checking for $_POST['submit]
-if(isset($_POST['submit'])){
+if(isset($_FILES['file'])){
     $photo = new Photo(); // Instantiate the object
     $photo->photo_title = $_POST['photo_title']; // Assigning $_POST['photo_title] to $photo
-    $photo->set_file($_FILES['file_upload']);
+    $photo->set_file($_FILES['file']);
 
     if($photo->save()){
         $message = "Photo uploaded Succesfully"; // If method save() returns true it will return this message
@@ -44,27 +44,43 @@ if(isset($_POST['submit'])){
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Upload
+                            Upload One File
                         </h1>
                         
                         <p class="bg-success"><?php echo $message; ?></p>
 
-                        <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
 
-                        <form method="post" action="upload.php" enctype="multipart/form-data">
+                                <form method="post" action="upload.php" enctype="multipart/form-data">
 
-                                <div class="form-group">
-                                    <input type="text" name="photo_title" class="form-control">
-                                </div>
+                                    <div class="form-group">
+                                        <input type="text" name="photo_title" class="form-control">
+                                    </div>
 
-                                <div class="form-group">
-                                    <input type="file" name="file_upload">
-                                </div>
+                                    <div class="form-group">
+                                        <input type="file" name="file">
+                                    </div>
 
-                                <input type="submit" name="submit">
+                                    <input type="submit" name="submit">
 
-                            </form>
+                                </form>
+
+                            </div>
                         </div>
+
+                        <h1 class="page-header">
+                            ...OR Drag and Drop Multiple Files
+                        </h1>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form action="upload.php" class="dropzone">
+                                </form>
+                            </div>
+                        </div>
+
+
 
                     </div>
                 </div>
