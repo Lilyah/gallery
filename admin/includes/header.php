@@ -27,6 +27,9 @@ include("init.php");
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
+    <!-- Dropzone CSS - Drag and drop JavaScript library -->
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
