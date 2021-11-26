@@ -47,9 +47,11 @@ if(isset($_POST['submit'])){
                             Upload
                         </h1>
                         
+                        <p class="bg-success"><?php echo $message; ?></p>
+
                         <div class="col-md-6">
-                            <?php echo $message; ?>
-                            <form method="post" action="upload.php" enctype="multipart/form-data">
+
+                        <form method="post" action="upload.php" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <input type="text" name="photo_title" class="form-control">
