@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="js/scripts.js"></script>
 
+    <!-- Dropzone JS - Drag and drop JavaScript library -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    
     <!-- Google Pie chart -->
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
