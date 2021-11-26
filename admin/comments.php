@@ -75,7 +75,8 @@ $comments = Comment::find_all(); // Instantiating class Photo
                                                 <?php echo $comment->body; ?>
                                             </td>                                                                     
                                             <td>
-                                                <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
+                                                <!-- class="delete-link" is a custom class for detecting the button via jquery -->
+                                                <a class="btn btn-danger delete-link" href="delete_comment.php?id=<?php echo $comment->id; ?>">Delete</a>
                                             </td>                                                                     
                                         </tr>
 

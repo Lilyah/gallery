@@ -96,7 +96,8 @@ if(empty($_GET['id'])){
                                 </div>
 
                                 <div class="form-group">
-                                    <a id="user-id" class="btn btn-danger pull-left" href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                                    <!-- class="delete-link" is a custom class for detecting the button via jquery -->
+                                    <a id="user-id" class="btn btn-danger pull-left delete-link" href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                                     <input type="submit" name="update" class="btn btn-primary pull-right" value="Update">
                                 </div>
 

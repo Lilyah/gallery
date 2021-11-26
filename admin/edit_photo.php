@@ -119,7 +119,8 @@ if(empty($_GET['id'])){
 
                                         <div class="info-box-footer clearfix">
                                             <div class="info-box-delete pull-left">
-                                                <a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg">Delete</a>
+                                                <!-- class="delete-link" is a custom class for detecting the button via jquery -->
+                                                <a href="delete_photo.php?id=<?php echo $photo->id; ?>" class="btn btn-danger btn-lg delete-link">Delete</a>
                                             </div>
 
                                             <div class="info-box-update pull-right">

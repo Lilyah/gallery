@@ -59,4 +59,10 @@ $(document).ready(function() {
     });
 
 
+    // Delete event pop-up
+    $(".delete-link").click(function(){
+      return confirm("Are you sure you want to delete this record?");
+    });
+
+
 });

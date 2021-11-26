@@ -67,7 +67,8 @@ $users = User::find_all(); // Instantiating class Photo
                                                 <?php echo $user->username; ?>
                                                 <div class="action_links">
                                                     <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
-                                                    <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                                                    <!-- class="delete-link" is a custom class for detecting the button via jquery -->
+                                                    <a class="delete-link" href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
                                                 </div>
                                             </td>                                    
                                             <td>

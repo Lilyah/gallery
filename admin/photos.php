@@ -88,7 +88,8 @@ $photos = Photo::find_all(); // Instantiating class Photo
                                                 <div class="action_links">
                                                     <a href="../photo.php?id=<?php echo $photo->id; ?>">View</a>
                                                     <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
-                                                    <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                                    <!-- class="delete-link" is a custom class for detecting the button via jquery -->
+                                                    <a class="delete-link" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                                 </div>
                                             </td>
                                             <td>
