@@ -25,6 +25,7 @@
 ## Features
 - Summernote, WYSIWYG Editor on Bootstrap - [Summernote](https://summernote.org/)
 - Google API Chart - [Pie Chart](https://developers.google.com/chart/interactive/docs/gallery/piechart)
+- Dropzone, Drag and drop JavaScript libraries - [v5](https://www.dropzone.dev/js/)
 
 
 ## Screenshots
